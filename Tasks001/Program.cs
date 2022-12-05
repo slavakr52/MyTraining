@@ -7,7 +7,7 @@
 Console.Write("Введите трёхзначное число: ");
 int Number = int.Parse(Console.ReadLine()!);
 
-NumberInfo(Number);
+PrintNumberInfo(Number);
 
 //===============================Методы===============================
 
@@ -33,9 +33,9 @@ int SumOfNumbers(int num)
     return sum;
 }
 
-void NumberInfo(int num)
+void PrintNumberInfo(int num)
 {
-    if (num / 100 >= 10 || num / 100 < 1) Console.WriteLine("Введено неверное число!");
+    if (NumberCheck(num)) Console.WriteLine("Введено неверное число!");
     else
     {
         Console.WriteLine($"Число единиц в числе {num} равно {num}");
@@ -43,4 +43,10 @@ void NumberInfo(int num)
         Console.WriteLine($"Сумма цифр числа {num} равна {SumOfNumbers(num)}");
         Console.WriteLine($"Произведение цифр числа {num} равно {MultOfNumbers(num)}");
     }
+}
+
+bool NumberCheck (int num)
+{
+    if (num / 100 >= 10 || num / 100 < 1) return true;
+    return false;
 }
