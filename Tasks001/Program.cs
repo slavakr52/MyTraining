@@ -50,3 +50,4 @@ bool NumberCheck (int num)
     if (num / 100 >= 10 || num / 100 < 1) return true;
     return false;
 }
+
