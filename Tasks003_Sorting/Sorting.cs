@@ -44,29 +44,49 @@ public static class Sorting
         return array;
     }
 
-    public static int[] SortQuick(int[] collection, int left, int right)
+    public static int[] SortQuick(int[] array, int left, int right)
     {
         int i = left;
         int j = right;
 
-        int pivot = collection[Random.Shared.Next(left, right)];
+        int pivot = array[Random.Shared.Next(left, right)];
         while (i <= j)
         {
-            while (collection[i] < pivot) i++;
-            while (collection[j] > pivot) j--;
+            while (array[i] < pivot) i++;
+            while (array[j] > pivot) j--;
 
             if (i <= j)
             {
-                int t = collection[i];
-                collection[i] = collection[j];
-                collection[j] = t;
+                int t = array[i];
+                array[i] = array[j];
+                array[j] = t;
                 i++;
                 j--;
             }
         }
-        if (i < right) SortQuick(collection, i, right);
-        if (left < j) SortQuick(collection, left, j);
-        return collection;
+        if (i < right) SortQuick(array, i, right);
+        if (left < j) SortQuick(array, left, j);
+        return array;
+    }
+
+    public static int[] SortCounting(int[] array)
+    {
+        int max = array.Max();
+        int size = array.Length;
+
+        int[] counter = new int[max + 1];
+
+        for (int i = 0; i < size; i++) counter[array[i]]++;
+
+        int index = 0;
+        for (int i = 0; i < max + 1; i++)
+        {
+            for (int j = 0; j < counter[i]; j++)
+            {
+                array[index++] = i;
+            }
+        }
+        return array;
     }
 }
 

@@ -11,4 +11,17 @@ public static class Infrastructure
         }
         return array;
     }
+
+    public static void Annotation()
+    {
+        Console.WriteLine();
+        Console.WriteLine("Выберите вид сортировки:");
+        Console.WriteLine("1. Сортировка выбором");
+        Console.WriteLine("2. Пузырьковая сортировка");
+        Console.WriteLine("3. Быстрая сортировка");
+        Console.WriteLine("4. Сортировка подсчётом");
+        Console.Write("> ");
+    }
+
+    
 }
