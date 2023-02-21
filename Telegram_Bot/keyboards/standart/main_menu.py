@@ -7,7 +7,8 @@ kb_help = ReplyKeyboardMarkup(resize_keyboard=True)
 
 btn_start = KeyboardButton('/start')
 btn_help = KeyboardButton('/help')
-btn_digit = KeyboardButton('Нажми меня')
+btn_contact = KeyboardButton('Кто я?', request_contact=True)
+btn_location = KeyboardButton('Где я?', request_location=True)
 
-kb_menu.add(btn_help).add(btn_digit)
-kb_help.add(btn_start, btn_digit)
+kb_menu.add(btn_help)
+kb_help.add(btn_start, btn_contact, btn_location)
