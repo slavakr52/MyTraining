@@ -7,7 +7,7 @@ kb_help = ReplyKeyboardMarkup(resize_keyboard=True)
 
 btn_start = KeyboardButton('/start')
 btn_help = KeyboardButton('/help')
-btn_digit = KeyboardButton('Нажми меня')
+btn_info = KeyboardButton('/info')
 
-kb_menu.add(btn_help).add(btn_digit)
-kb_help.add(btn_start, btn_digit)
+kb_menu.add(btn_help).add(btn_info)
+kb_help.add(btn_start)
