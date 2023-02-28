@@ -3,7 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 783143bbdf188be5f4b4c51df1210c9278c8934b
 config.py
 
 # User-specific files

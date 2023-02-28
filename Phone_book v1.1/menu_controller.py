@@ -7,9 +7,13 @@ def main_start(main_file = 'data_base.txt'):
         user_choise = view.menu()
         match user_choise:
             case 1:
-                opened_file = func.open_file(main_file)
-                view.open()
-                view.wait_enter()
+                if opened_file != None:
+                    view.file_warning()
+                    view.wait_enter()
+                else:
+                    opened_file = func.open_file(main_file)
+                    view.open()
+                    view.wait_enter()
             case 2:
                 if opened_file == None:
                     view.warning()
@@ -23,7 +27,7 @@ def main_start(main_file = 'data_base.txt'):
                     view.warning()
                     view.wait_enter()
                 else:
-                    func.show_contacts(opened_file)
+                    view.show_contacts(opened_file)
                     view.wait_enter()
             case 4:
                 if opened_file == None:
@@ -39,7 +43,7 @@ def main_start(main_file = 'data_base.txt'):
                     view.warning()
                     view.wait_enter()
                 else:
-                    func.show_contacts(opened_file)
+                    view.show_contacts(opened_file)
                     view.change()
                     num = view.num_of_contact()
                     contact = view.new_contact()
@@ -54,14 +58,14 @@ def main_start(main_file = 'data_base.txt'):
                     value = view.search()
                     result = func.search_contact(opened_file, value)
                     view.search_result(result)
-                    func.show_contacts(result)
+                    view.show_contacts(result)
                     view.wait_enter()
             case 7:
                 if opened_file == None:
                     view.warning()
                     view.wait_enter()
                 else:
-                    func.show_contacts(opened_file)
+                    view.show_contacts(opened_file)
                     view.delete()
                     num = view.num_of_contact()
                     func.delete_contact(opened_file, num)

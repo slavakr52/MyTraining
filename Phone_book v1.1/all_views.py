@@ -35,6 +35,9 @@ class View:
 
     def warning():
         print('\nФайл не открыт!')
+    
+    def file_warning():
+        print('\nФайл уже открыт!')
 
     def wait_enter():
         print('\nДля продолжения нажмите Enter')
@@ -74,6 +77,16 @@ class View:
             print('\nПо данному запросу ничего не найдено')
         else:
             print('\nПо данному запросу найдены следующие контакты: ')
+
+    
+    def show_contacts(opened_file: list[dict]):
+        print()
+        for i, contact in enumerate(opened_file, 1):
+            name = contact.get('name')
+            number = contact.get('number')
+            comment = contact.get('comment')
+            print(f'{i}. {name:<20} {number:<15} {comment}')
+
 
 
         

@@ -22,14 +22,6 @@ class Functions:
         with open(file, 'w', encoding='UTF-8') as file:
             file.write(data)
 
-    def show_contacts(opened_file: list[dict]):
-        print()
-        for i, contact in enumerate(opened_file, 1):
-            name = contact.get('name')
-            number = contact.get('number')
-            comment = contact.get('comment')
-            print(f'{i}. {name:<20} {number:<15} {comment}')
-
     def add_contact(opened_file: list[dict], new_contact: dict):
         opened_file.append(new_contact)
 
