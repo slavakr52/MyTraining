@@ -24,10 +24,12 @@ class Car:
             file.write(data)
 
     
+
+    
 def new_car_input():
     brand = input('Введите название авто: ')
     model = input('Введите модель авто: ')
-    year = input('Введите год авто=: ')
+    year = input('Введите год авто: ')
     horse_power = input('Введите мощность авто (л.с.): ')
     new_car = Car(f'{brand}', f'{model}', f'{year}', f'{horse_power}')
     new_car.save_car()

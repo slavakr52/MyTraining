@@ -1,3 +1,5 @@
+import view
+
 class Logics:
 
     def __init__(self, path: str = 'data_base.txt'):
@@ -32,7 +34,15 @@ class Logics:
         return finded_contacts
     
     def delete(self, index: int):
-        self.temp_book.pop(index)
+        name = self.temp_book[index].get('name')
+        value = view.delete_secure(name)
+        if value:
+            self.temp_book.pop(index)
+            view.contact_is('удалён')
+            view.click_to_continue()
+        else:
+            view.delete_cancel()
+            view.click_to_continue()
 
     def add(self, new_contact: dict):
         self.temp_book.append(new_contact)
