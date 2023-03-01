@@ -67,7 +67,7 @@ def delete_contact(phone_book: list[dict]):
         click_to_continue()
 
 def click_to_continue():
-    input('\nНажмите Enter для продолжения\n')
+    input('\nНажмите Enter для продолжения')
 
 def phone_book_warning():
     print('\nТелефонная книга пуста либо файл не открыт!')

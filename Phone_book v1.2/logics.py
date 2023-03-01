@@ -1,9 +1,10 @@
 import view
+import os
 
 class Logics:
 
     def __init__(self, path: str = 'data_base.txt'):
-        self.path = path
+        self.path = os.path.abspath(path)
         self.temp_book = []
 
     def open_file(self):
@@ -16,7 +17,7 @@ class Logics:
                 dict_contact['number'] = list[1]
                 dict_contact['comment'] = list[2]
                 self.temp_book.append(dict_contact)
-            
+
     def save_file(self):
         data = []
         for contact in self.temp_book:
@@ -32,17 +33,15 @@ class Logics:
                 if value.lower() in element.lower():
                     finded_contacts.append(contact)
         return finded_contacts
-    
+
     def delete(self, index: int):
         name = self.temp_book[index].get('name')
         value = view.delete_secure(name)
         if value:
             self.temp_book.pop(index)
             view.contact_is('удалён')
-            view.click_to_continue()
         else:
             view.delete_cancel()
-            view.click_to_continue()
 
     def add(self, new_contact: dict):
         self.temp_book.append(new_contact)
@@ -53,4 +52,3 @@ class Logics:
     def get(self):
         return self.temp_book
 
-        
